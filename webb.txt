@@ -1,0 +1,296 @@
+SLIP 2:  
+Q2) . Write a JavaScript code to calculate maximum, minimum, sum and average of numbers in an array.  
+<html>  
+<head>  
+    <title>Array Operations</title>  
+    <style>  
+        .input-box {             margin-bottom: 10px;  
+        }  
+    </style>  
+</head>  
+<body>  
+  
+    <div>  
+        <h2>Array Operations</h2>  
+          
+        <div class="input-box">  
+            <label for="numbersInput">Enter numbers: </label>  
+            <input type="text" id="numbersInput">          </div>  
+  
+        <button onclick="calculateResults()">Calculate</button>           <h3>Results:</h3>  
+        <p id="results"></p>  
+    </div>  
+  
+    <script>         function calculateResults() {             const numbers = document.getElementById('numbersInput').value.split(',').map(Number);             const isValidInput = numbers.every(num => !isNaN(num));               if (isValidInput)               {                  const max = Math.max(...numbers);                 const min = Math.min(...numbers);                 const sum = numbers.reduce((acc, val) => acc + val, 0);                 const average = sum / numbers.length;                   const resultsText = `Array: 
+[${numbers}]                                     
+\nMaximum: ${max}  
+                                    \nMinimum: ${min}  
+                                    \nSum: ${sum}                                      \nAverage: ${average.toFixed(2)}`;                 document.getElementById('results').innerText = resultsText;              }              else              {                 document.getElementById('results').innerText = 'Invalid input.  
+Please enter valid numbers.';  
+             }  
+        }  
+    </script>  
+<html>  
+    <title>Multiplication Table</title>  
+ 
+    <style>          table {              border-collapse: collapse;              width: 10%;                  margin: 20px 0;  
+        }           table, td {              border: 1px solid black;  
+        }  
+  
+        td {              padding: 5px;              text-align: center;  
+        }  
+    </style>  
+</head>  
+<body>  
+  
+    <h2>Multiplication Table Generator</h2>  
+  
+    <label for="number">Enter a number:</label>  
+    <input type="number" id="number" min="1">  
+    <button onclick="generateTable()">Generate Table</button>    
+</body>  
+</html>  
+  
+  
+SLIP 3:  
+Q2) Write a JavaScript program to display a Multiplication table in tabular format using function  
+
+  
+    <div id="tableContainer"></div>   
+    <script>        
+  function generateTable()   
+        {             var number = document.getElementById("number").value;               if (isNaN(number) || number < 1) 
+        {                  alert("Please enter a valid positive number.");                  return;  
+        }              var tableContent = "<table>";               for (var i = 1; i <= 10; i++)  
+            {                  var product = number * i;  
+                tableContent += "<tr><td>" + product + "</td></tr>";  
+            }                     tableContent += "</table>";      
+        document.getElementById("tableContainer").innerHTML = tableContent;          }  
+    </script>  
+</body>  
+</html>  
+  <!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Email Validation</title>  
+    <style>         body {  
+            font-family: Arial, sans-serif;          }  
+  
+        #result {  
+            margin-top: 10px;             color: green;          }  
+  SLIP 4:  
+Q2) Write a JavaScript function to validate email-id using regular expression.  
+  
+        #error         {              margin-top: 10px;                     color: red;  
+        }  
+    </style>  
+</head>  
+<body>  
+  
+    <h2>Email Validation</h2>  
+  
+    <label for="email">Enter your email:</label>  
+    <input type="text" id="email">  
+    <button onclick="validateEmail()">Validate Email</button>       <div id="result"></div>  
+    <div id="error"></div>  
+  
+    <script>       
+   function validateEmail()           {                            var email = document.getElementById("email").value;                 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;               if(emailRegex.test(email)) 
+            {                  document.getElementById("result").innerHTML = "Valid email address!";                  document.getElementById("error").innerHTML = ""; 
+          }            else           {                  document.getElementById("result").innerHTML="";        
+          document.getElementById("error").innerHTML = "Invalid email address. Please enter          a valid email.";  
+            }      
+    }  
+    </script>  
+  
+</body>  
+</html>  
+    
+SLIP 5: . Write a JavaScript program to print the reverse of a number. 
+ 
+head>   
+    <title>Reverse Number</title>  
+    <style>    
+      Body 
+        {              font-family: Arial, sans-serif;  
+        }  
+ 
+        #result 
+       {                    margin-top: 10px;  
+        }  
+    </style>  /head>  body>  
+ 
+    <h2>Reverse Number Program</h2>  
+ 
+    <label for="number">Enter a number:</label>  
+    <input type="number" id="number">  
+    <button onclick="reverseNumber()">Reverse Number</button>       <div id="result"></div>  
+ 
+    <script>          function reverseNumber() 
+                             {                           var number = document.getElementById("number").value;                    if (isNaN(number)) 
+                                 {                                     alert("Please enter a valid number.");                                      return;  
+                                  }               var reversedNumber = 
+            arseInt(number.toString().split('').reverse().join(''));  
+            document.getElementById("result").innerHTML = "Reversed Number: " + reversedNumber;                                   }  
+    </script>  
+ 
+/body>  
+/html>  
+   
+
+SLIP 6:  
+<html>  
+<head>  
+    <title>Number to Words</title>  
+</head>  
+<body>  
+            <h2>Number to Words Program</h2>    
+    <label for="number">Enter a number:</label>  
+    <input type="number" id="number">  
+    <button onclick="convertToWords()">Convert to Words</button>       <div id="result"></div>  
+  
+    <script>          function convertToWords() {              var number = document.getElementById("number").value;              var words = numberToWords(number);              document.getElementById("result").innerHTML = "In Words: " + words;  
+        }          function numberToWords(number) {     
+         var units = ["", "One", "Two", "Three", "Four", "Five", "Six",  "Seven", "Eight", "Nine"];   
+ 
+           var teens = ["", "Eleven", "Twelve", "Thirteen", "Fourteen","Fifteen", "Sixteen", 
+"Seventeen", "Eighteen", "Nineteen"];              var tens = ["", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];  
+  
+            var digits = number.toString().split('').map(Number).reverse();              var result = "";  
+  
+            for (var i = 0; i < digits.length; i++) {          if (i === 0)                   
+                result = units[digits[i]] + result;         else if (i === 1)                       result = digits[i] === 1 ? teens[digits[i - 1]] + result : tens[digits[i]] + result;         else if (i === 2)     
+              result = units[digits[i]] + " Hundred " + result;  
+            }              return result.trim(); } Q2) Write a JavaScript program to accept a number from user and display that number in words (e.g. 226 Two Two Six  
+
+</script>  </body>  
+</html>  
+    
+  
+  
+SLIP 7:  
+Q2) Write a JavaScript program to print factorial of a given number.  
+<html> 
+<head> 
+    <title>Factorial Calculator</title> 
+</head> 
+<body> 
+ 
+    <h2>Factorial Calculator</h2> 
+ 
+    <label for="number">Enter a number:</label> 
+    <input type="number" id="number"> 
+    <button onclick="calculateFactorial()">Calculate Factorial</button>  
+    <div id="result"></div> 
+ 
+    <script>         const calculateFactorial = () => {             const number = parseInt(document.getElementById("number").value);             const factorial = (n) => n <= 1 ? 1 : n * factorial(n - 1);             document.getElementById("result").innerHTML = `Factorial of 
+${number} is: ${factorial(number)}`; 
+        }; 
+    </script> 
+ 
+</body> 
+</html> 
+ SLIP 9: 
+Q2) Write a JavaScript code to greet the user according to the current timing.  
+<html> 
+<head> 
+   <title>Greeting based on Time</title> 
+</head> 
+
+<body> 
+    <h2>Greeting Program</h2> 
+    <label for="name">Enter your name:</label> 
+    <input type="text" id="name"><br> 
+ 
+    <label for="time">Enter the current time (optional, 24-hour format):</label> 
+    <input type="number" id="time" min="0" max="23"> 
+ 
+    <button onclick="getGreeting()">Get Greeting</button>  
+    <p id="greeting"></p> 
+ 
+    <script>         function getGreeting() {             const userName = document.getElementById("name").value;             const userTime = document.getElementById("time").value; 
+             let currentHour; 
+             if (userTime === "") {                 const currentTime = new Date();                 currentHour = currentTime.getHours(); 
+            } else {                 currentHour = parseInt(userTime); 
+            }             if (!userName || isNaN(currentHour) || currentHour < 0 || currentHour > 23) {                 alert("Please enter a valid name and time (0-23).");                 return; 
+            } 
+ 
+            let greeting; 
+ 
+            if (currentHour < 12) { 
+                greeting = `Good morning, ${userName}!`; 
+            } else if (currentHour < 18) { 
+                greeting = `Good afternoon, ${userName}!`; 
+            } else {                 greeting = `Good evening, ${userName}!`; 
+            } 
+            document.getElementById("greeting").innerHTML = greeting; 
+        } 
+    </script> 
+</body> 
+</html> SLIP  11: 
+Q2) 2. Write a menu driven program using JavaScript to find square root, power and absolute value of a given number and validate them. 
+<html> 
+<head> 
+    <title>Math Operations</title> 
+</head> 
+<body> 
+ 
+    <h2>Math Operations</h2> 
+ 
+    <label for="number">Enter a number:</label> 
+    <input type="text" id="number"> 
+ 
+    <label for="operation">Select an operation:</label> 
+    <select id="operation"> 
+        <option value="sqrt">Square Root</option> 
+        <option value="power">Power</option> 
+        <option value="absolute">Absolute Value</option> 
+    </select> 
+ 
+    <button onclick="performOperation()">Perform Operation</button>  
+    <p id="result"></p> 
+ 
+    <script>         function performOperation() {             const numberInput = document.getElementById("number").value;             const operation = document.getElementById("operation").value; 
+             if (!isValidNumber(numberInput)) {                 alert("Please enter a valid number.");                 return; 
+            } 
+            const number = parseFloat(numberInput); 
+             let result;             switch (operation) {                 case "sqrt":                     result = Math.sqrt(number);                     break;                 case "power": 
+                    result = Math.pow(number, 2); // You can modify the power value as needed                     break;                 case "absolute": 
+                    result = Math.abs(number);                     break;                 default: 
+                    alert("Invalid operation selected.");                     return; 
+            } 
+             document.getElementById("result").innerHTML = `Result: ${result}`;         } 
+         function isValidNumber(input) {             return !isNaN(parseFloat(input)) && isFinite(input);         } 
+    </script> 
+ 
+</body> 
+</html> 
+  
+SLIP 12: 
+Q2) Write a JavaScript Program to read a number from user, store its factors into the array and display that array 
+<html>  
+<head> 
+    <title>Factor Array</title> 
+</head> 
+<body> 
+ 
+    <h2>Factor Array Program</h2> 
+ 
+    <label for="number">Enter a number:</label> 
+    <input type="number" id="number"> 
+    <button onclick="generateFactorArray()">Generate Factor Array</button>  
+    <p id="result"></p> 
+ 
+    <script>         function generateFactorArray() {             const number = parseInt(document.getElementById("number").value);             const factors = Array.from({ length: number }, (_, i) => i + 
+1).filter(n => number % n === 0);             document.getElementById("result").innerHTML = `Factors: 
+${factors.join(", ")}`; 
+        } 
+    </script> 
+ 
+</body> 
+</html> 
+ 
+ 
+ 
